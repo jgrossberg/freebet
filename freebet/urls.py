@@ -8,6 +8,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'games', views.GameViewSet)
 router.register(r'lines', views.LineViewSet)
+router.register(r'teams', views.TeamViewSet)
 
 
 # Wire up our API using automatic URL routing.

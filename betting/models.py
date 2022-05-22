@@ -14,8 +14,7 @@ class Team(models.Model):
     sport = models.TextField()
 
     def __str__(self):
-        return str.format("{} {}", self.city, self.name)
-
+        return str.format(self.city)
 
 class Game(models.Model):
     team1 = models.ForeignKey(Team, related_name="team_1", on_delete=models.DO_NOTHING, blank=False, null=False)
