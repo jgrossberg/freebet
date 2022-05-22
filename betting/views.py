@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User, Group
+from betting.models import Line, Game
 from rest_framework import viewsets
 from rest_framework import permissions
-from betting.serializers import UserSerializer, GroupSerializer
+from betting.serializers import UserSerializer, GroupSerializer, LineSerializer, GameSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -19,4 +20,20 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class LineViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows betting lines to be viewed or edited.
+    """
+    queryset = Line.objects.all()
+    serializer_class = LineSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class GameViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows betting lines to be viewed or edited.
+    """
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer
     permission_classes = [permissions.IsAuthenticated]
